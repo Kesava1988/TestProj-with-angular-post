@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="test">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular Testing project</title>
+    <link data-require="bootstrap@3.3.5" data-semver="3.3.5" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body ng-controller="MainController as mainVm">
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form ng-submit="mainVm.addCustomer()">
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" ng-model="mainVm.newEmp.firstName" class="form-control" id="firstName" placeholder="Customer First Name">
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" ng-model="mainVm.newEmp.lastName" class="form-control" id="lastName" placeholder="Customer Last Name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" ng-model="mainVm.newEmp.email" class="form-control" id="email" placeholder="Customer Email">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="text" ng-model="mainVm.newEmp.phone" class="form-control" id="phone" placeholder="Customer Phone">
+                </div>
+                <button type="submit" class="btn btn-primary">Add Customer</button>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <input class="form-control" type="search" ng-model="mainVm.searchStr" placeholder="Search Here...">
+            <hr>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Delete</th>
+                    <th>Id</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="emp in mainVm.employees | filter: mainVm.searchStr">
+                    <td><i ng-click="mainVm.deleteEmployee($index)" class="glyphicon glyphicon-remove"></i></td>
+                    <td>{{emp.id}}</td>
+                    <td>{{emp.firstName}}</td>
+                    <td>{{emp.lastName}}</td>
+                    <td>{{emp.email}}</td>
+                    <td>{{emp.phone}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div>
+
+
+</body>
+
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-animate.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-cookies.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-resource.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-sanitize.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-touch.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-touch.min.js"></script>
+<script src="JS/script.js"></script>
+
+</body>
+</html>
